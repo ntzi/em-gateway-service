@@ -1,0 +1,49 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "declarationMap": true,
+    "skipLibCheck": true,
+    "module": "ESNext",
+    "strict": true,
+    "strictFunctionTypes": false,
+    "target": "ESNext",
+
+    // "module": "Node16",
+    // "lib": ["ES2022"],
+    "moduleResolution": "Node",
+
+    "rootDir": ".",
+    "outDir": "build",
+    "pretty": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "importHelpers": true,
+
+    // "alwaysStrict": true,
+    "sourceMap": true,
+
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUnusedParameters": true,
+    "noImplicitAny": false,
+    "noImplicitThis": false,
+    "strictNullChecks": true,
+    "allowJs": true,
+
+    // Required by typeorm 
+    "emitDecoratorMetadata": true,
+
+    "inlineSources": true,
+
+    // Set `sourceRoot` to  "/" to strip the build path prefix
+    // from generated source code references.
+    // This improves issue grouping in Sentry.
+    // Set `sourceRoot` to  "/" to strip the build path prefix
+    // from generated source code references.
+    // This improves issue grouping in Sentry.
+    "sourceRoot": "/"
+  },
+  "include": ["src/**/*", "__tests__/**/*", "scripts/**/*"]
+}
