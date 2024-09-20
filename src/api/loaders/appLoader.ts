@@ -18,7 +18,7 @@ responsesLoader(app);
 
 app.use(requestLogger);
 
-// app.use('/', routes);
+app.use('/', routes);
 
 // Initialize after using rootRouter
 errorHandler(app);
