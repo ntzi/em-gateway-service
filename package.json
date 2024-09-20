@@ -16,6 +16,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.21.0",
+    "joi": "^17.13.3",
+    "lodash": "^4.17.21",
     "nodemon": "^3.1.6",
     "pg": "^8.13.0",
     "typeorm": "^0.3.20"

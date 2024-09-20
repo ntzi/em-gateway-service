@@ -8,7 +8,7 @@ import employeeRoutes from '../routes/employee.js';
 import employeeAvailability from '../routes/employeeAvailability.js';
 import locationRoutes from '../routes/location.js';
 import serviceRoutes from '../routes/service.js';
-import userRoutes from '../routes/user.js';
+import userRoutes from './events.js';
 import reCaptcha from '../routes/reCaptcha.js';
 import gBucket from '../routes/gBucket.js';
 import notification from '../routes/notification.js';
