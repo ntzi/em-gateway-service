@@ -1,4 +1,4 @@
-import axios, { AxiosError, AxiosRequestConfig } from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 import config from '../../config/config.js';
 
 const {
@@ -27,15 +27,14 @@ const getAxiosInstance = (service: Service) => {
 	}
 };
 
-export const getter = async <T>(
+export const getter = async (
 	service: Service,
 	url: string,
 	config?: AxiosRequestConfig
 ): Promise<any | { message: string; data: any }> => {
 	try {
 		const axiosInstance = getAxiosInstance(service);
-		console.log('url =', url);
-		const response = await axiosInstance.get<T>(url, config);
+		const response = await axiosInstance.get(url, config);
 
 		return response.data;
 	} catch (error) {
@@ -43,15 +42,16 @@ export const getter = async <T>(
 	}
 };
 
-export const poster = async <T>(
+export const poster = async (
 	service: Service,
 	url: string,
 	data: any,
 	config?: AxiosRequestConfig
-): Promise<T> => {
+): Promise<any | { message: string; data: any }> => {
 	try {
 		const axiosInstance = getAxiosInstance(service);
-		const response = await axiosInstance.post<T>(url, data, config);
+		const response = await axiosInstance.post(url, data, config);
+
 		return response.data;
 	} catch (error) {
 		throw error;

@@ -1,4 +1,3 @@
-// import { User } from '../models/user.js';
 import { getEventArtists } from '../services/eventsService.js';
 import {
 	Fan,
@@ -15,10 +14,10 @@ const getRelevantFans: GetRelevantFansHandler = async (
 	req: GetRelevantFansReq,
 	res: ResponseI
 ) => {
-	const { id } = req.params;
+	const { eventId } = req.params;
 
-	const artists = await getEventArtists(id);
-	console.log('artists =', artists)
+	const artists = await getEventArtists(eventId);
+	console.log('artists =', artists);
 
 	const relevantFans: Fan[] = [
 		{ id: 1, name: 'John Doe' },

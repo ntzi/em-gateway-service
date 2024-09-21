@@ -6,7 +6,7 @@ import { CustomParams, RequestI } from '../responses/responsesTypes';
  	events.getRelevantFans()
 */
 type GetRelevantFansParams = {
-	id: number;
+	eventId: number;
 };
 type GetRelevantFansQuery = Record<string, string>;
 type GetRelevantFansBody = Record<string, string>;
