@@ -1,4 +1,5 @@
 // import { User } from '../models/user.js';
+import { getEventArtists } from '../services/eventsService.js';
 import {
 	Fan,
 	GetRelevantFansHandler,
@@ -8,15 +9,16 @@ import {
 import { ErrorCause } from '../types/errors/errorTypes.js';
 import { ResponseI } from '../types/responses/responsesTypes.js';
 import { validateResData } from '../validators/responseDataValidator.js';
-import {
-	getRelevantFansResData,
-} from '../validators/schemas/response/events.js';
+import { getRelevantFansResData } from '../validators/schemas/response/events.js';
 
 const getRelevantFans: GetRelevantFansHandler = async (
 	req: GetRelevantFansReq,
 	res: ResponseI
 ) => {
 	const { id } = req.params;
+
+	const artists = await getEventArtists(id);
+	console.log('artists =', artists)
 
 	const relevantFans: Fan[] = [
 		{ id: 1, name: 'John Doe' },

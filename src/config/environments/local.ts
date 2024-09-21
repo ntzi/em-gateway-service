@@ -23,4 +23,12 @@ export const localConfig = {
 			port: 6379,
 		},
 	},
+	services: {
+		events: {
+			url: 'http://events-service:3000',
+		},
+		fans: {
+			url: 'http://fans-service:3000',
+		},
+	}
 };
