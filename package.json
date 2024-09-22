@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "local": "nodemon"
+    "local": "NODE_ENV=local ./scripts/startLocal.sh",
+    "typeorm": "typeorm-ts-node-esm -d src/api/loaders/appDataSource.ts"
   },
   "author": "",
   "license": "ISC",

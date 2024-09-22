@@ -25,6 +25,11 @@ const {
 const register: RegisterHandler = async (req: RegisterReq, res: ResponseI) => {
 	const { email, password } = req.body;
 
+	const user = await User.findOne({ where: { email } });
+	if (user) {
+		return res.badRequest({}, 'Email in use.');
+	}
+
 	// Hash the password
 	const hashedPassword = await bcrypt.hash(password, 10);
 
