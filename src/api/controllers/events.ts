@@ -2,6 +2,7 @@ import { Artist } from '../models/artist.js';
 import { Event } from '../models/event.js';
 import { Fan } from '../models/fan.js';
 import { getEventArtists } from '../services/eventsService.js';
+import { getFansOfArtists } from '../services/fansService.js';
 import {
 	// Fan,
 	GetRelevantFansHandler,
@@ -21,17 +22,17 @@ const getRelevantFans: GetRelevantFansHandler = async (
 		params: { eventId },
 	} = req;
 
-	const artists = await getEventArtists(authorization, eventId);
-	console.log('artists =', artists);
+	// Get artists of event from events-service
+	const artistIds = await getEventArtists(authorization, eventId);
 
-	const relevantFans: Fan[] = [
-		{ id: 1, name: 'John Doe' },
-		{ id: 2, name: 'Jane Doe' },
-	] as never;
+	// Get fans of artists from fans-service
+	const relevantFans = await getFansOfArtists(authorization, artistIds);
+
 	const resData = validateResData<GetRelevantFansResData>(
-		{ relevantFans },
+		relevantFans,
 		getRelevantFansResData
 	);
+
 	return res.ok(resData);
 };
 

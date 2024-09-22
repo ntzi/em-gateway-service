@@ -11,11 +11,6 @@ type GetRelevantFansParams = {
 type GetRelevantFansQuery = Record<string, string>;
 type GetRelevantFansBody = Record<string, string>;
 
-export type Fan = {
-	id: number;
-	name: string;
-};
-
 export type GetRelevantFansReq = RequestI<
 	CustomParams<GetRelevantFansParams>,
 	GetRelevantFansQuery,
@@ -28,5 +23,9 @@ export type GetRelevantFansHandler = RequestHandler<
 	qs.ParsedQs
 >;
 export interface GetRelevantFansResData {
-	relevantFans: Fan[];
+	id: number;
+	email: string;
+	name: string;
+	createdAt: Date;
+	updatedAt: Date;
 }

@@ -1,9 +1,9 @@
 type PathVariables = {
 	id?: string | number | null;
-	eventId?: string | number | null;
+	artistIds?: number[];
 };
 export const endpoints = (pathVariables: PathVariables) => {
-	const { id } = pathVariables;
+	const { id, artistIds } = pathVariables;
 
 	return {
 		eventsService: {
@@ -13,7 +13,7 @@ export const endpoints = (pathVariables: PathVariables) => {
 		},
 		fansService: {
 			fans: {
-				artists: `api/v1/fans/artist/${id}`,
+				artists: `api/v1/fans/relevant-artists/${artistIds}`,
 			},
 		},
 	};

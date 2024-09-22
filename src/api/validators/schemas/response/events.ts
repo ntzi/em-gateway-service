@@ -1,3 +1,9 @@
-const getRelevantFansResData = ['id', 'name'];
+const getRelevantFansResData = [
+	'id',
+	'name',
+	'email',
+	'createdAt',
+	'updatedAt',
+];
 
 export { getRelevantFansResData };
