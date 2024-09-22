@@ -5,7 +5,6 @@ import {
 	GetRelevantFansReq,
 	GetRelevantFansResData,
 } from '../types/controller/events.js';
-import { ErrorCause } from '../types/errors/errorTypes.js';
 import { ResponseI } from '../types/responses/responsesTypes.js';
 import { validateResData } from '../validators/responseDataValidator.js';
 import { getRelevantFansResData } from '../validators/schemas/response/events.js';
@@ -14,9 +13,12 @@ const getRelevantFans: GetRelevantFansHandler = async (
 	req: GetRelevantFansReq,
 	res: ResponseI
 ) => {
-	const { eventId } = req.params;
+	const {
+		headers: { authorization },
+		params: { eventId },
+	} = req;
 
-	const artists = await getEventArtists(eventId);
+	const artists = await getEventArtists(authorization, eventId);
 	console.log('artists =', artists);
 
 	const relevantFans: Fan[] = [
