@@ -1,6 +1,9 @@
+import { Artist } from '../models/artist.js';
+import { Event } from '../models/event.js';
+import { Fan } from '../models/fan.js';
 import { getEventArtists } from '../services/eventsService.js';
 import {
-	Fan,
+	// Fan,
 	GetRelevantFansHandler,
 	GetRelevantFansReq,
 	GetRelevantFansResData,
@@ -24,7 +27,7 @@ const getRelevantFans: GetRelevantFansHandler = async (
 	const relevantFans: Fan[] = [
 		{ id: 1, name: 'John Doe' },
 		{ id: 2, name: 'Jane Doe' },
-	];
+	] as never;
 	const resData = validateResData<GetRelevantFansResData>(
 		{ relevantFans },
 		getRelevantFansResData
