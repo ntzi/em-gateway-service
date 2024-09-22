@@ -30,5 +30,9 @@ export const localConfig = {
 		fans: {
 			url: 'http://fans-service:3000',
 		},
-	}
+	},
+	auth: {
+		secretKey: process.env.JWT_SECRET || 'my-secret-key',
+		expirationTime: '1d',
+	},
 };

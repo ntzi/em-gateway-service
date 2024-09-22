@@ -1,5 +1,5 @@
 import { getter } from '../tools/axios.js';
-import { endpoints } from '../tools/endpoints.js';
+import { endpoints } from './endpoints.js';
 import { Service } from '../tools/axios.js';
 
 export const getEventArtists = async (eventId: number) => {
